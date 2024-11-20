@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senior Assassin</title>
     <!-- Load Google API Platform Library -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
    
     <style>
         body {
@@ -16,8 +16,12 @@
         #g-signin2 {
             margin: 20px auto;
         }
-        .hidden {
-            display: none;
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -25,9 +29,25 @@
     <h1>Welcome to Senior Assassin</h1>
     <p>Sign in and upload your game sheet to continue:</p>
 
-    <!-- Google Sign-In Button -->
-    <div id="g-signin2" class="g-signin2" data-onsuccess="onSignIn"></div>
+   <div id="google-sign-in"></div>
 
+    <!-- Include JavaScript -->
+    <script>
+        // Google Sign-In setup
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "825538423774-seramrvgddmil226bdmsguii9hnu7gn9.apps.googleusercontent.com",
+                callback: onSignIn
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("google-sign-in"),
+                { theme: "outline", size: "large" } // Customize button
+            );
+        };
+
+        function onSignIn(googleUser) {
+            console.log("User signed in:", googleUser);
+        }
     <!-- File Upload -->
     <input type="file" id="sheet-upload" class="hidden" accept=".csv,.xls,.xlsx">
     <div id="options" class="hidden">
