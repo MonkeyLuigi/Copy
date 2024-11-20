@@ -3,15 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior Assassin Game</title>
-    <script src="https://apis.google.com/js/api.js"></script> <!-- Google API script -->
+    <title>Senior Assassin</title>
+    <!-- Load Google API Platform Library -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="client_id" content="825538423774-seramrvgddmil226bdmsguii9hnu7gn9.apps.googleusercontent.com">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #g-signin2 {
+            margin: 20px auto;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Senior Assassin Game!</h1>
-    <button id="resumeGame">Resume Game</button>
-    <button id="startNewGame">Start New Game</button>
+    <h1>Welcome to Senior Assassin</h1>
+    <p>Sign in and upload your game sheet to continue:</p>
 
-    <!-- Place this at the bottom to ensure elements are available when the script runs -->
-    <script src="script.js"></script> <!-- Main logic -->
+    <!-- Google Sign-In Button -->
+    <div id="g-signin2" class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <!-- File Upload -->
+    <input type="file" id="sheet-upload" class="hidden" accept=".csv,.xls,.xlsx">
+    <div id="options" class="hidden">
+        <p>The sheet contains data. Do you want to restart or resume the game?</p>
+        <button id="restart-game">Restart Game</button>
+        <button id="resume-game">Resume Game</button>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
