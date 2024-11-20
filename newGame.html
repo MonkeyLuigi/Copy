@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start New Game</title>
+    <script src="https://apis.google.com/js/api.js"></script> <!-- Google API script -->
+</head>
+<body>
+    <h1>New Game - Add Player Info</h1>
+    <form id="newGameForm">
+        <label for="playerName">Player Name:</label>
+        <input type="text" id="playerName" required><br><br>
+
+        <label for="contactInfo">Contact Info:</label>
+        <input type="text" id="contactInfo" required><br><br>
+
+        <label for="imageUrl">Image URL:</label>
+        <input type="text" id="imageUrl" required><br><br>
+
+        <button type="submit">Save Player Info</button>
+    </form>
+
+    <script src="newGame.js"></script> <!-- New game logic -->
+</body>
+</html>
